@@ -1,0 +1,52 @@
+{% extends "filmweb/layout.html" %} {% block content %}
+
+<section class="jumbotron text-center">
+  <div class="container">
+    <h1 class="jumbotron-heading">
+      Dodawaj, komentuj i oceniaj swoje ulubione filmy!
+    </h1>
+    <p class="lead text-muted">
+      <strong>MyFilmweb</strong> to największy i najczęściej odwiedzany polski
+      serwis filmowy. Największa baza filmów, seriali i aktorów, repertuar kin i
+      tv, premiery, nowości...
+    </p>
+    <p>
+      <a href="#" class="btn btn-primary my-2 btn-lg">Dodaj film</a>
+    </p>
+  </div>
+</section>
+
+<div class="album py-5 bg-light">
+  <div class="container">
+    <div class="row">
+      {% for movie in movies %}
+      <div class="col-md-4">
+        <div class="card mb-4 shadow-sm">
+          <img
+            class="bd-placeholder-img card-img-top"
+            src="{{ movie.image_thumbnail }}"
+            preserveAspectRatio="xMidYMid slice"
+            focusable="false"
+            role="img"
+            aria-label="Placeholder: Thumbnail"
+          />
+          <div class="card-body">
+            <h5 class="font-weight-bold">{{ movie.title }}</h5>
+
+            <p class="card-text">
+              {{ movie.description }}
+            </p>
+            <div class="d-flex justify-content-between align-items-center">
+              <small class="text-muted"
+                >Data premiery: {{ movie.release_date }}</small
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% endblock content %}
