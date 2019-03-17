@@ -19,15 +19,6 @@ class MovieListView(ListView):
     # ordering = najwyższa ocena
     paginate_by = 10
 
-class UserMovieListView(ListView):
-    model = Movie
-    template_name = 'filmweb/user_movies.html'
-    context_object_name = 'movies'
-    paginate_by = 10
-
-    def get_queryset(self):
-        user = get_object_or_404(User, username=self.kwargs.get('username'))
-        return Movie.objects.filter(author=user) #.order_by najwyższa ocena
 
 class MovieDetailView(DetailView):
     model = Movie
