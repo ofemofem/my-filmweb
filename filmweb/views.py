@@ -22,7 +22,4 @@ movies = [
 ]
 
 def home(request):
-    context = {
-        "movies": movies
-    }
-    return render(request, 'filmweb/home/home.html', context)
+    return render(request, 'filmweb/home/home.html', {"movies": movies})
