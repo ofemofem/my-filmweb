@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'filmweb.apps.FilmwebConfig',
+    'widget_tweaks',
     'users.apps.UsersConfig',
     'django.contrib.admin',
     'django.contrib.auth',

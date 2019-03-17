@@ -1,0 +1,22 @@
+main {
+    margin: 40px 0;
+}
+
+.home-jumbotron {
+    margin-top: -40px;
+}
+
+.errorlist {
+    margin-top: 10px;
+    padding-left: 0;
+}
+
+input < .errorlist  {
+    border-color: red;
+}
+
+.errorlist li {
+    color: #dc3545;
+    font-size: 80%;
+    list-style: none;
+}
