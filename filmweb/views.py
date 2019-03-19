@@ -6,18 +6,13 @@ from django.views.generic import (
 )
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
-from .models import Movie
+from .models import Movie, New
 
 
 def home(request):
-    return render(request, 'filmweb/home/home.html', {'movies': Movie.objects.all()})
-
-class MovieListView(ListView):
-    model = Movie
-    template_name = 'filmweb/home/home.html' #<app>/<model>_<viewtype>.html
-    context_object_name = 'movies'
-    # ordering = najwyższa ocena
-    paginate_by = 10
+    movies = Movie.objects.filter().order_by('pub_date')[0:3]
+    news = New.objects.filter().order_by('pub_date')[0:3]
+    return render(request, 'filmweb/home/home.html', {'movies': movies, 'news': news})
 
 
 class MovieDetailView(DetailView):
